@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/aluno1.dart';
-import 'screens/aluno2.dart';
+import 'screens/aluno.dart';
 import 'screens/cadastro.dart';
 
 void main() {
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Atividade 02',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       home: DefaultTabController(
         length: 3,
@@ -31,8 +30,8 @@ class MyApp extends StatelessWidget {
             title: const Center(child: Text("Atividade 02")),
           ),
           body: const TabBarView(children: [
-            Aluno1(),
-            Aluno2(),
+            Aluno(),
+            Aluno(),
             Cadastro(),
           ]),
         ),
