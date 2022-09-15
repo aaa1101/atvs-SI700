@@ -14,10 +14,8 @@ class Aluno extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(
-              width: 180,
-              //child: FittedBox(
-              child: Image.file(File("img/img1.png")),
-              //),
+              width: 170,
+              child: Image.asset('assets/images/img1.png'),
             ),
             const SizedBox(
               width: 200,
