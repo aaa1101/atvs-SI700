@@ -36,6 +36,27 @@ class _CadastroState extends State<Cadastro> {
               lblCPF(),
               lblTel(),
               lblEmail(),
+              const Padding(
+                  padding: EdgeInsets.only(top: 15.0),
+                  child: Text(
+                    'Quantos pets voce deseja cadastrar?',
+                    style: TextStyle(fontSize: 16),
+                  )),
+              Row(children: [radQtdAnimal(1), const Text("1 pet")]),
+              Row(children: [radQtdAnimal(2), const Text("2 pets")]),
+              Row(children: [radQtdAnimal(3), const Text("3 pets")]),
+              Row(children: [radQtdAnimal(4), const Text("4 pets")]),
+              Row(children: [radQtdAnimal(5), const Text("5 ou mais pets")]),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(children: [
+                  chkPropaganda(),
+                  const Text(
+                    'Aceito receber informações e novidades por email',
+                    style: TextStyle(fontSize: 12),
+                  )
+                ]),
+              ),
               btnCadastrar(),
             ],
           )),
@@ -99,6 +120,32 @@ class _CadastroState extends State<Cadastro> {
           ? 'Informe seu endereco de e-mail'
           : null,
       onSaved: (inValue) => client.nm_email = inValue ?? "",
+    );
+  }
+
+  Widget radQtdAnimal(int value) {
+    return Radio(
+        value: value,
+        groupValue: client.qtd_pets,
+        onChanged: (int? inValue) {
+          if (inValue != null) {
+            setState(() {
+              client.qtd_pets = inValue;
+            });
+          }
+        });
+  }
+
+  Widget chkPropaganda() {
+    return Checkbox(
+      value: client.ic_propaganda,
+      onChanged: (bool? inValue) {
+        if (inValue != null) {
+          setState(() {
+            client.ic_propaganda = inValue;
+          });
+        }
+      },
     );
   }
 
