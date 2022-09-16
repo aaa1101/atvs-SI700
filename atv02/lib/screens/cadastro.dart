@@ -166,6 +166,7 @@ class _CadastroState extends State<Cadastro> {
                     textAlign: TextAlign.center,
                   )),
             );
+            formkey.currentState?.reset();
           }
         },
         child: const Text("Cadastrar"),
