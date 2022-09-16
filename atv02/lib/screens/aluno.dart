@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
 class Aluno extends StatelessWidget {
-  const Aluno({super.key});
-  //add parametro pra nome, sobrenome e ft
+  const Aluno({
+    super.key,
+    required this.nm_aluno,
+    required this.desc_aluno,
+    required this.url_ft,
+  });
+
+  final String nm_aluno;
+  final String desc_aluno;
+  final String url_ft;
 
   @override
   Widget build(BuildContext context) {
+    String a = 'nome';
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -16,17 +26,19 @@ class Aluno extends StatelessWidget {
               width: 170,
               child: Image.asset('assets/images/img1.png'),
             ),
-            const SizedBox(
+            SizedBox(
               width: 200,
               child: Text.rich(
                 textAlign: TextAlign.center,
                 TextSpan(
-                  text: 'Nome',
-                  style: TextStyle(fontSize: 35),
+                  text: nm_aluno.replaceRange(
+                      nm_aluno.indexOf(' '), nm_aluno.length, ''),
+                  style: const TextStyle(fontSize: 35),
                   children: [
                     TextSpan(
-                      text: "\nSobrenome",
-                      style: TextStyle(fontSize: 20),
+                      text:
+                          "\n${nm_aluno.replaceRange(0, nm_aluno.indexOf(' '), '')}",
+                      style: const TextStyle(fontSize: 20),
                     )
                   ],
                 ),
@@ -36,13 +48,13 @@ class Aluno extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             SizedBox(
               width: 350,
               child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet semper dolor. Vestibulum turpis nisi, ornare facilisis fringilla ac, ultrices scelerisque massa. Phasellus vitae quam in quam congue feugiat eu ornare diam.",
+                desc_aluno,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
             ),
           ],
