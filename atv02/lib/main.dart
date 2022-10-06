@@ -30,13 +30,13 @@ class MyApp extends StatelessWidget {
               body: const TabBarView(
                 children: [
                   Aluno(
-                      nm_aluno: 'Nome Sobrenome mais um espaco',
+                      nm_aluno: 'Aline da Silva Souza Alves',
                       desc_aluno: 'Lorem ipsum in dolor sit amet',
-                      url_ft: 'assets/images/img1.png'),
+                      url_ft: 'assets/images/img2.jpg'),
                   Aluno(
-                      nm_aluno: 'Nome Sobrenome',
+                      nm_aluno: 'Natalie Fernanda Santos',
                       desc_aluno: 'Descricao bla bla bla',
-                      url_ft: 'assets/images/img1.png'),
+                      url_ft: 'assets/images/img1.jpg'),
                   Cadastro(),
                 ],
               ))),

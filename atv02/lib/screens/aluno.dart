@@ -24,7 +24,7 @@ class Aluno extends StatelessWidget {
           children: [
             SizedBox(
               width: 170,
-              child: Image.asset('assets/images/img1.png'),
+              child: Image.asset(url_ft),
             ),
             SizedBox(
               width: 200,
