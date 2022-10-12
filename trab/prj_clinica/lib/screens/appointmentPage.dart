@@ -23,9 +23,9 @@ class AppointmentPage extends StatelessWidget {
             if (element.finished) continue;
             listOfColumns.add({
               'Data': element.date,
-              'Horario': element.hour,
+              'Horário': element.hour,
               'Tipo de Atendimento': 'Consulta',
-              'Veterinario': 'Maria',
+              'Veterinário': 'Maria',
             });
           }
           return _tableAppointment(
@@ -57,9 +57,9 @@ class AppointmentPage extends StatelessWidget {
               child: DataTable(
                 columns: const [
                   DataColumn(label: Text('Data')),
-                  DataColumn(label: Text('Horario')),
+                  DataColumn(label: Text('Horário')),
                   DataColumn(label: Text('Tipo Atendimento')),
-                  DataColumn(label: Text('Veterinario')),
+                  DataColumn(label: Text('Veterinário')),
                   DataColumn(label: Text('Ver mais')),
                 ],
                 rows: listOfColumns
@@ -67,9 +67,9 @@ class AppointmentPage extends StatelessWidget {
                       ((element) => DataRow(
                             cells: <DataCell>[
                               DataCell(Text(element["Data"]!)),
-                              DataCell(Text(element["Horario"]!)),
+                              DataCell(Text(element["Horário"]!)),
                               DataCell(Text(element["Tipo de Atendimento"]!)),
-                              DataCell(Text(element["Veterinario"]!)),
+                              DataCell(Text(element["Veterinário"]!)),
                               DataCell(
                                 const Center(child: Icon(Icons.search)),
                                 onTap: () {},

@@ -8,8 +8,8 @@ class Pets {
         url_ft: 'assets/img1.png',
         idade: 10,
         especie: 'gato',
-        raca: 'siames thai',
-        sexo: 'maco',
+        raca: 'siamês thai',
+        sexo: 'macho',
         list_appointments: [
           Appointment(date: '09/09/2022', hour: '12:00', finished: true),
           Appointment(date: '12/10/2022', hour: '18:00', finished: true),
@@ -21,7 +21,7 @@ class Pets {
         idade: 6,
         especie: 'gato',
         raca: 'persa mistura',
-        sexo: 'femea',
+        sexo: 'fêmea',
         list_appointments: [
           Appointment(date: '12/10/2022', hour: '08:00', finished: true),
           Appointment(date: '22/12/2022', hour: '10:00', finished: false),
@@ -32,8 +32,8 @@ class Pets {
         url_ft: 'assets/img1.png',
         idade: 2,
         especie: 'gato',
-        raca: 'siames',
-        sexo: 'maco',
+        raca: 'siamês',
+        sexo: 'macho',
         list_appointments: [
           Appointment(date: '19/05/2022', hour: '14:00', finished: true),
           Appointment(date: '13/12/2022', hour: '15:00', finished: false),
@@ -41,17 +41,17 @@ class Pets {
     Pet(
         nome: 'Romrom',
         url_ft: 'assets/img1.png',
-        idade: 1,
+        idade: 2,
         especie: 'gato',
         raca: 'vira-lata',
-        sexo: 'maco'),
+        sexo: 'macho'),
     Pet(
         nome: 'Fofusha',
         url_ft: 'assets/img1.png',
-        idade: 1,
+        idade: 2,
         especie: 'gato',
         raca: 'persa',
-        sexo: 'femea',
+        sexo: 'fêmea',
         list_appointments: [
           Appointment(date: '09/06/2022', hour: '06:00', finished: true),
           Appointment(date: '12/10/2022', hour: '08:00', finished: true),

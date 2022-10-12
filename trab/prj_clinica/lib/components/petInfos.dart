@@ -29,7 +29,7 @@ class PetInfos extends StatelessWidget {
                   width: size.width * 0.45 - 15,
                   child: Text.rich(TextSpan(
                     text:
-                        'Nome: ${pet.nome}\nIdade: ${pet.idade} anos\nGenero: ${pet.sexo}\nEspecie: ${pet.especie}\nRaca: ${pet.raca}',
+                        'Nome: ${pet.nome}\nIdade: ${pet.idade} anos\nGênero: ${pet.sexo}\nEspécie: ${pet.especie}\nRaça: ${pet.raca}',
                     style: const TextStyle(
                       fontSize: 16,
                     ),

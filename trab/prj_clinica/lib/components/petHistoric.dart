@@ -9,10 +9,10 @@ class PetHistoric extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, String>> listOfColumns = [];
     for (var element in appointments) {
-      var finished = (element.finished) ? 'Concluido' : 'Aberto';
+      var finished = (element.finished) ? 'Concluído' : 'Aberto';
       listOfColumns.add({
         'Data': element.date,
-        'Horario': element.hour,
+        'Horário': element.hour,
         'Tipo Atendimento': 'Consulta',
         'Status': finished
       });
@@ -34,7 +34,7 @@ class PetHistoric extends StatelessWidget {
               child: DataTable(
                 columns: const [
                   DataColumn(label: Text('Data')),
-                  DataColumn(label: Text('Horario')),
+                  DataColumn(label: Text('Horário')),
                   DataColumn(label: Text('Tipo Atendimento')),
                   DataColumn(label: Text('Status')),
                   DataColumn(label: Text('Ver mais')),
@@ -44,7 +44,7 @@ class PetHistoric extends StatelessWidget {
                       ((element) => DataRow(
                             cells: <DataCell>[
                               DataCell(Text(element["Data"]!)),
-                              DataCell(Text(element["Horario"]!)),
+                              DataCell(Text(element["Horário"]!)),
                               DataCell(Text(element["Tipo Atendimento"]!)),
                               DataCell(Text(element["Status"]!)),
                               DataCell(
