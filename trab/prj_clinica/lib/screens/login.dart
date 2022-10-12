@@ -78,7 +78,9 @@ class _LoginPageState extends State<LoginPage> {
               formkey.currentState!.save();
               print('clicou');
 
-              formkey.currentState?.reset();
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('/home', (route) => false);
+              //formkey.currentState?.reset();
             }
           },
           child: const Text('Login')),

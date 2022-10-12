@@ -17,41 +17,47 @@ class _CadastroState extends State<Cadastro> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 200, maxHeight: 200),
-            child: SizedBox(
-              child: Image.asset('assets/img1.png'),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Form(
-                key: formkey,
-                child: Column(
-                  children: [
-                    const Center(
-                        child: Text(
-                      'Cadastro',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.teal,
-                      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ConstrainedBox(
+                constraints:
+                    const BoxConstraints(maxWidth: 150, maxHeight: 150),
+                child: SizedBox(
+                  child: Image.asset('assets/img1.png'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Form(
+                    key: formkey,
+                    child: Column(
+                      children: [
+                        const Center(
+                            child: Text(
+                          'Cadastro',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.teal,
+                          ),
+                        )),
+                        lblNome(),
+                        lblCPF(),
+                        lblTel(),
+                        lblEmail(),
+                        lblPassword(),
+                        chkPropaganda(),
+                        btnCadastrar(),
+                      ],
                     )),
-                    lblNome(),
-                    lblCPF(),
-                    lblTel(),
-                    lblEmail(),
-                    lblPassword(),
-                    chkPropaganda(),
-                    btnCadastrar(),
-                  ],
-                )),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
