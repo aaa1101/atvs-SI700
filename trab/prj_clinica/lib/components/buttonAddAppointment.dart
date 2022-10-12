@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ButtonAddAppointment extends StatelessWidget {
-  const ButtonAddAppointment({super.key});
+  final Size size;
+  const ButtonAddAppointment({super.key, required this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +10,7 @@ class ButtonAddAppointment extends StatelessWidget {
       style: TextButton.styleFrom(
           backgroundColor: Colors.teal,
           shape: const CircleBorder(),
-          fixedSize: const Size(10, 10)),
+          fixedSize: size),
       child: const Icon(
         Icons.add,
         color: Colors.white,

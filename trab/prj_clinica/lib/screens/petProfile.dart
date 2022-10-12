@@ -31,7 +31,7 @@ class PetProfile extends StatelessWidget {
                   'Agendamentos:',
                   style: TextStyle(color: Colors.teal, fontSize: 16),
                 ),
-                ButtonAddAppointment(),
+                ButtonAddAppointment(size: Size(15, 15)),
               ],
             ),
           ),

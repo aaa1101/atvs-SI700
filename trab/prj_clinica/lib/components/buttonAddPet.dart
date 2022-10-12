@@ -6,8 +6,8 @@ class ButtonAddPet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 5,
-      right: 5,
+      bottom: 8,
+      right: 8,
       child: TextButton(
         style: TextButton.styleFrom(
             backgroundColor: Colors.teal,

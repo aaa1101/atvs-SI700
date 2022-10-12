@@ -36,7 +36,7 @@ class Pets {
         sexo: 'maco',
         list_appointments: [
           Appointment(date: '19/05/2022', hour: '14:00', finished: true),
-          Appointment(date: '13/06/2022', hour: '15:00', finished: true),
+          Appointment(date: '13/12/2022', hour: '15:00', finished: false),
         ]),
     Pet(
         nome: 'Romrom',
