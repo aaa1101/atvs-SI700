@@ -4,6 +4,7 @@ import 'package:prj_clinica/components/buttonAddPet.dart';
 import 'package:prj_clinica/components/containerPet.dart';
 import 'package:prj_clinica/components/header.dart';
 import 'package:prj_clinica/screens/appointmentPage.dart';
+import 'package:prj_clinica/screens/newPetProfile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage> {
           Column(
             children: const [
               Header(),
-              Text('Vou fazer? eis a questao'),
+              Text(''),
             ],
           ),
         ],
