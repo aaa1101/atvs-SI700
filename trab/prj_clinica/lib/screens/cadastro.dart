@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:prj_clinica/bloc/auth_bloc.dart';
 import '../model/client.dart';
 
 class Cadastro extends StatefulWidget {
@@ -11,10 +13,37 @@ class Cadastro extends StatefulWidget {
 
 class _CadastroState extends State<Cadastro> {
   final Client client = Client();
+  String _password = '';
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    return BlocConsumer<AuthBloc, AuthState>(
+      builder: (context, state) {
+        if (state is Authenticated) {
+          return Container();
+        }
+        return unauthenticatedWidget();
+      },
+      listener: (context, state) {
+        if (state is AuthError) {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: const Text("Erro ao cadastrar"),
+                  content: Text(state.message),
+                );
+              });
+        } else if (state is Authenticated) {
+          Navigator.popUntil(context, (route) => false);
+          Navigator.pushNamed(context, '/home');
+        }
+      },
+    );
+  }
+
+  Widget unauthenticatedWidget() {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -131,7 +160,7 @@ class _CadastroState extends State<Cadastro> {
       ),
       validator: (value) =>
           (value == null || value.isEmpty) ? 'Informe sua senha senha' : null,
-      onSaved: (newValue) => print(newValue),
+      onSaved: (inValue) => _password = inValue!,
     );
   }
 
@@ -166,17 +195,8 @@ class _CadastroState extends State<Cadastro> {
         onPressed: () {
           if (formkey.currentState!.validate()) {
             formkey.currentState!.save();
-            client.doSomething();
-
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                  backgroundColor: Colors.green,
-                  content: Text(
-                    "Cadastrado realizado com sucesso!!",
-                    textAlign: TextAlign.center,
-                  )),
-            );
-            formkey.currentState?.reset();
+            BlocProvider.of<AuthBloc>(context)
+                .add(RegisterUser(client: client, password: _password));
           }
         },
         child: const Text("Cadastrar"),

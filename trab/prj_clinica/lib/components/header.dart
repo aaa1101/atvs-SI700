@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  final String name;
+  const Header({required this.name, super.key});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Column(children: [
-      Container(
+      SizedBox(
         height: size.height * 0.2,
         child: Stack(children: [
           Container(
@@ -19,6 +20,27 @@ class Header extends StatelessWidget {
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30),
                 )),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 25.0),
+            child: Text.rich(
+              TextSpan(
+                text: 'Seja bem-vindo(a),',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+                children: [
+                  TextSpan(
+                    text: "\n       $name",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 2,
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
           Positioned(
               bottom: 0,

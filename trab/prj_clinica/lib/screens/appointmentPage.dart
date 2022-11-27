@@ -14,24 +14,28 @@ class AppointmentPage extends StatelessWidget {
     }
     Size size = MediaQuery.of(context).size;
 
-    return Expanded(
-      child: ListView.builder(
-        itemCount: appointment_pets.length,
-        itemBuilder: (context, index) {
-          List<Map<String, String>> listOfColumns = [];
-          for (var element in appointment_pets[index].appointments) {
-            if (element.finished) continue;
-            listOfColumns.add({
-              'Data': element.date,
-              'Horário': element.hour,
-              'Tipo de Atendimento': 'Consulta',
-              'Veterinário': 'Maria',
-            });
-          }
-          return _tableAppointment(
-              appointment_pets, index, listOfColumns, size);
-        },
-      ),
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+            itemCount: appointment_pets.length,
+            itemBuilder: (context, index) {
+              List<Map<String, String>> listOfColumns = [];
+              for (var element in appointment_pets[index].appointments) {
+                if (element.finished) continue;
+                listOfColumns.add({
+                  'Data': element.date,
+                  'Horário': element.hour,
+                  'Tipo de Atendimento': 'Consulta',
+                  'Veterinário': 'Maria',
+                });
+              }
+              return _tableAppointment(
+                  appointment_pets, index, listOfColumns, size);
+            },
+          ),
+        ),
+      ],
     );
   }
 

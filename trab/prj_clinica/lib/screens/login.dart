@@ -1,17 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prj_clinica/bloc/auth_bloc.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+class LoginPage extends StatelessWidget {
+  LoginPage({Key? key}) : super(key: key);
+  String username = '';
+  String _password = '';
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<FormState> formkey = GlobalKey<FormState>();
+    return BlocConsumer<AuthBloc, AuthState>(
+      builder: (context, state) {
+        if (state is Authenticated) {
+          return Container();
+        } else {
+          return unauthenticatedWidget(context, formkey);
+        }
+      },
+      listener: (context, state) {
+        if (state is AuthError) {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: const Text("Erro ao efetuar o login"),
+                  content: Text(state.message),
+                );
+              });
+        } else if (state is Authenticated) {
+          Navigator.popUntil(context, (route) => false);
+          Navigator.pushNamed(context, '/home');
+        }
+      },
+    );
+  }
+
+  Widget unauthenticatedWidget(
+      BuildContext context, GlobalKey<FormState> formkey) {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
@@ -32,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   lblEmail(),
                   lblPassword(),
-                  btnLogin(),
+                  btnLogin(context, formkey),
                 ],
               ),
             ),
@@ -52,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
       validator: (value) => (value == null || value.isEmpty)
           ? 'Informe um endereco de email valido'
           : null,
-      onSaved: (newValue) => print(newValue),
+      onSaved: (String? inValue) => username = inValue!,
     );
   }
 
@@ -65,22 +91,20 @@ class _LoginPageState extends State<LoginPage> {
       ),
       validator: (value) =>
           (value == null || value.isEmpty) ? 'Informe sua senha senha' : null,
-      onSaved: (newValue) => print(newValue),
+      onSaved: (String? inValue) => _password = inValue!,
     );
   }
 
-  Widget btnLogin() {
+  Widget btnLogin(BuildContext context, GlobalKey<FormState> formkey) {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: ElevatedButton(
           onPressed: () {
             if (formkey.currentState!.validate()) {
               formkey.currentState!.save();
-              print('clicou');
 
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil('/home', (route) => false);
-              //formkey.currentState?.reset();
+              BlocProvider.of<AuthBloc>(context)
+                  .add(LoginUser(username: username, password: _password));
             }
           },
           child: const Text('Login')),

@@ -44,7 +44,7 @@ class IndexPage extends StatelessWidget {
         fixedSize: const Size(200, 0),
       ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
       onPressed: () {
-        Navigator.of(context).pushNamed('/login');
+        Navigator.pushNamed(context, '/login');
       },
       child: const Text('Entrar'),
     );
@@ -59,7 +59,7 @@ class IndexPage extends StatelessWidget {
         fixedSize: const Size(200, 0),
       ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
       onPressed: () {
-        Navigator.of(context).pushNamed('/cadastro');
+        Navigator.pushNamed(context, '/cadastro');
       },
       child: const Text('Cadastrar'),
     );

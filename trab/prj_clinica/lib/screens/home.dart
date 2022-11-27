@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prj_clinica/bloc/auth_bloc.dart';
 import 'package:prj_clinica/components/buttonAddAppointment.dart';
 import 'package:prj_clinica/components/buttonAddPet.dart';
 import 'package:prj_clinica/components/containerPet.dart';
 import 'package:prj_clinica/components/header.dart';
 import 'package:prj_clinica/screens/appointmentPage.dart';
-import 'package:prj_clinica/screens/newPetProfile.dart';
+import 'package:prj_clinica/screens/index.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,14 +20,26 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        if (state is Authenticated) {
+          print('home: ${state.userModel.uid}');
+          return homePage(state);
+        }
+        return const IndexPage();
+      },
+    );
+  }
+
+  Widget homePage(Authenticated state) {
+    print('home wi: ${state.userModel.uid}');
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.of(context)
-                  .restorablePushNamedAndRemoveUntil('/', (route) => false);
+              BlocProvider.of<AuthBloc>(context).add(Logout());
             },
             style: TextButton.styleFrom(
               shape: const CircleBorder(),
@@ -43,8 +57,8 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              const Header(),
-              Flexible(
+              Header(name: state.userModel.nm_cliente),
+              Expanded(
                 child: Stack(
                   children: const [
                     ContainerPet(),
@@ -57,18 +71,24 @@ class _HomePageState extends State<HomePage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Header(),
-              AppointmentPage(),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: ButtonAddAppointment(size: Size(40, 40)),
+              Header(name: state.userModel.nm_cliente),
+              Expanded(
+                child: Stack(
+                  children: [
+                    AppointmentPage(),
+                    const Positioned(
+                        bottom: 8,
+                        right: 8,
+                        child: ButtonAddAppointment(size: Size(40, 40))),
+                  ],
+                ),
               ),
             ],
           ),
           Column(
-            children: const [
-              Header(),
-              Text(''),
+            children: [
+              Header(name: state.userModel.nm_cliente),
+              const Text('Vou fazer? eis a questao'),
             ],
           ),
         ],
