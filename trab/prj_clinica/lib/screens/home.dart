@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prj_clinica/bloc/auth_bloc.dart';
 import 'package:prj_clinica/components/buttonAddAppointment.dart';
 import 'package:prj_clinica/components/buttonAddPet.dart';
+import 'package:prj_clinica/components/buttonMyPets.dart';
 import 'package:prj_clinica/components/containerPet.dart';
 import 'package:prj_clinica/components/header.dart';
 import 'package:prj_clinica/screens/appointmentPage.dart';
+import 'package:prj_clinica/components/containerProfile.dart';
 import 'package:prj_clinica/screens/index.dart';
 
 class HomePage extends StatefulWidget {
@@ -88,7 +90,11 @@ class _HomePageState extends State<HomePage> {
           Column(
             children: [
               Header(name: state.userModel.nm_cliente),
-              const Text('Vou fazer? eis a questao'),
+              Expanded(
+                child: Stack(
+                  children: const [ContainerProfile(), ButtonMyPet()],
+                ),
+              )
             ],
           ),
         ],

@@ -5,15 +5,16 @@ class Client {
   String cd_tel = '';
   String nm_email = '';
   bool ic_propaganda = false;
+  String url_ft = '';
 
-  Client({
-    this.uid = '',
-    this.nm_cliente = '',
-    this.cd_cpf = '',
-    this.cd_tel = '',
-    this.nm_email = '',
-    this.ic_propaganda = false,
-  });
+  Client(
+      {this.uid = '',
+      this.nm_cliente = '',
+      this.cd_cpf = '',
+      this.cd_tel = '',
+      this.nm_email = '',
+      this.ic_propaganda = false,
+      this.url_ft = ''});
 
   Client.fromMap(map) {
     nm_cliente = map['nome'];
