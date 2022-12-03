@@ -59,7 +59,7 @@ class Header extends StatelessWidget {
                       )
                     ],
                     image: const DecorationImage(
-                        image: AssetImage('assets/img1.png'))),
+                        image: AssetImage('assets/images.jpeg'))),
               ))
         ]),
       )

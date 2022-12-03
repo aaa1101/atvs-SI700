@@ -56,7 +56,7 @@ class _CadastroState extends State<Cadastro> {
                 constraints:
                     const BoxConstraints(maxWidth: 150, maxHeight: 150),
                 child: SizedBox(
-                  child: Image.asset('assets/img1.png'),
+                  child: Image.asset('assets/images.jpeg'),
                 ),
               ),
               Padding(

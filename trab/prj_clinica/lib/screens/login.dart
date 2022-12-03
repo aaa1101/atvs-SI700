@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 300),
             child: SizedBox(
               width: MediaQuery.of(context).size.width / 2,
-              child: Image.asset('assets/img1.png'),
+              child: Image.asset('assets/images.jpeg'),
             ),
           ),
           Padding(

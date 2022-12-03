@@ -12,7 +12,7 @@ class IndexPage extends StatelessWidget {
           title: Center(
             child: SizedBox(
               width: 200,
-              child: Image.asset('assets/img1.png'),
+              child: Image.asset('assets/images.jpeg'),
             ),
           ),
         ),

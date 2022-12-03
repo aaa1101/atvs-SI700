@@ -5,7 +5,7 @@ class Pets {
   static List<Pet> pets = [
     Pet(
         nome: 'Pompom',
-        url_ft: 'assets/img1.png',
+        url_ft: 'assets/siames-thai.png',
         idade: 10,
         especie: 'gato',
         raca: 'siamês thai',
@@ -17,7 +17,7 @@ class Pets {
         ]),
     Pet(
         nome: 'Tufi',
-        url_ft: 'assets/img1.png',
+        url_ft: 'assets/gato-persa.jpg',
         idade: 6,
         especie: 'gato',
         raca: 'persa mistura',
@@ -29,7 +29,7 @@ class Pets {
         ]),
     Pet(
         nome: 'Mino',
-        url_ft: 'assets/img1.png',
+        url_ft: 'assets/siames.jpg',
         idade: 2,
         especie: 'gato',
         raca: 'siamês',
@@ -40,14 +40,14 @@ class Pets {
         ]),
     Pet(
         nome: 'Romrom',
-        url_ft: 'assets/img1.png',
+        url_ft: 'assets/vira-lata.jpg',
         idade: 2,
         especie: 'gato',
         raca: 'vira-lata',
         sexo: 'macho'),
     Pet(
         nome: 'Fofusha',
-        url_ft: 'assets/img1.png',
+        url_ft: 'assets/gato-persa.jpg',
         idade: 2,
         especie: 'gato',
         raca: 'persa',
